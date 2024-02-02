@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="utf-8">
+<style>
+</style>
+</head>
+<body>
+<img id="nuotrauka" scr="">
+    <div onmouseover="rodykNuotrauka(0)" onclick="prideti(this.innerHTML)">Cepelinai</div>
+    <div onmouseover="rodykNuotrauka(1)" onclick="prideti(this.innerHTML)">Karbonadas</div>
+    <div onmouseover="rodykNuotrauka(2)" onclick="prideti(this.innerHTML)">Salotos</div>
+    <div onmouseover="rodykNuotrauka(3)" onclick="prideti(this.innerHTML)">Sriuba</div>
+<button onclick="sarasas.innerHTML=''">Trinti užsakymus</button>
+  <p id="suvestine">
+
+  </p>  
+
+<ul id="sarasas">
+
+    </ul>
+<script>
+
+const nuotraukos=[
+"images/cepelinai.jpg",
+"images/Karbonadas.jpg",
+"images/Salotos.jpg",
+"images/sriuba.jpg"
+]
+
+const uzsakymai=[];
+const nuotrauka=document.getElementById("nuotrauka");
+
+function rodykNuotrauka(sk){
+    nuotrauka.src = nuotraukos[sk];
+}
+
+const sarasas=document.getElementById("sarasas");
+function prideti(patiekalas){
+        var elementas=document.createElement("li");
+        elementas.innerHTML=patiekalas;
+        sarasas.appendChild(elementas);
+        uzsakymai.push(patiekalas);
+
+        var visiUzsakymai=document.getElementsByTagName("li");
+        var cepelinuSk=0;
+        var karbonaduSk=0;
+        var salotuSk=0;
+        var sriubosSk=0;
+
+        for(var i in visiUzsakymai){
+            switch (visiUzsakymai[i].innerHTML){
+                case "Cepelinai":
+                    cepelinuSk++;
+                    break;
+                case "Karbonadas":
+                    karbonaduSk++;
+                    break;
+                case "Salotos":
+                    salotuSk++;
+                    break;
+                case "Sriuba":
+                    sriubosSk++;
+                    break;
+            }
+        }
+
+document.getElementById("suvestine").innerHTML=
+"cepelinai:"+cepelinuSk+"<br>"+
+"karbonadai:"+karbonaduSk+"<br>"+
+"salotos:"+salotuSk+"<br>"+
+"sriubos:"+sriubosSk+"<br>";
+}
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="utf-8">
+<style>
+
+    img {
+        width:270px;
+    }
+</style>
+</head>
+<body>
+
+    
+<script>
+function parodykFoto(){
+    const divas=document.getElementById("foto");
+    const fotoElementas=document.createElement("img");
+    fotoElementas.src="images/sriuba.jpg";
+    divas.appendChild(fotoElementas);
+
+}
+
+ function paslepkFoto(){
+    var nuotrauka=document.getElementsByTagName("img");
+    for(var i=0; i<nuotrauka.lenght; i++){
+        nuotrauka[i].style.display="none";
+    }  
+ }
+
+ function naujasPatieklas(){
+const patiekalas=document.createElement("li");
+patiekalas.innerHTML="Sriuba";
+document.getElementById("uzsak").appendChild(patiekalas);
+
+ }
+</script>
+
+
+
+<h2>Restorano valgiaraštis</h2>
+
+<ul>
+<li  id="sar1" onmouseover="parodykFoto()" onmouseleave="paslepkFoto()" onclick="naujasPatieklas()" >Burokėlių sriuba</li>
+<li>Salotos</li>
+<li>Karbonadas</li>
+<li>Cepelinai</li>
+</ul>
+
+<div id="foto"></div>
+
+
+<div>
+
+
+    <h2>Užsakymas</h2>
+    <ol id="uzsak"></ol>
+</div>
+</body>
+</html>
+
+
